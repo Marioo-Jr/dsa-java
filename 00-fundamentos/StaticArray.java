@@ -22,6 +22,22 @@ import util.Assert;
  *      pq quando eles estiverem no meio o numero vai ser igual e ai eles param, porem eu acho que fazendo isso eu crio um novo array
  *    2. nao sei se e possivel chamar uma funcao direta sem ter que criar uma variavel para armazenar o resultao
  *    3. talvez eu tenha que criar um novo arr e depois armazenar o resultado no arr da funcao
+ * 
+ *    somar todos os elementos
+ *    1.imagino que vou ter que fazer um for, passar por todos os numeros e criar uma variavel que vai receber esse valor +=
+ *    2.
+ *    3.
+ * 
+ *    indiceDoMaior
+ *    1. eu imagino que eu tenho que fazer um while pq tenho que passar por todos os numeros do arr usando o indice e comparar um com o outro.
+ *    2. entao preciso usar um for e dentro do for um if para comparar os resultados.
+ *     
+ * 
+ *    deslocarEinserir
+ *    1. ta, entao eu recebo 3 parametros o array, a posicao que vai ser inserido, e o numero que vai ser inserido na posicao.
+ *      Eu imagino que o primeiro passo é excluir o ultimo numero do array, e depois comparar oque precisa ser movido, se eu vou inserir
+ *      no indice 1 o indice 0 mantem igual. 
+ * 
  */
 public class StaticArray {
 
@@ -31,8 +47,8 @@ public class StaticArray {
         Assert.equals(30, elementoDoMeio(a), "elemento do meio de array ímpar");
         Assert.arrayEquals(new int[]{50, 40, 30, 20, 10}, inverter(a.clone()), "inverter in-place");
         Assert.equals(150, soma(a), "soma de todos elementos");
-        Assert.equals(2, indiceDoMaior(a), "índice do maior elemento");
-        Assert.arrayEquals(new int[]{10, 99, 30, 40, 50}, deslocarEinserir(a.clone(), 1, 99), "inserir com deslocamento");
+        Assert.equals(4, indiceDoMaior(a), "índice do maior elemento");
+        Assert.arrayEquals(new int[]{10, 99, 20, 30, 40}, deslocarEinserir(a.clone(), 1, 99), "inserir com deslocamento");
 
         Assert.resumo();
     }
@@ -59,7 +75,7 @@ public class StaticArray {
             
             inicio++;
             fim--;
-            System.out.println(inicio + "+" + fim);
+        
         }
         
         return arr;
@@ -67,19 +83,41 @@ public class StaticArray {
 
     // TODO: soma todos os elementos.
     static int soma(int[] arr) {
-        throw new UnsupportedOperationException("TODO");
+        
+        int soma = 0;
+
+        for(int i = 0; arr.length > i; i++){
+            soma += arr[i];
+        }
+        return soma;
     }
 
     // TODO: retorna o índice do maior elemento (primeira ocorrência em caso de empate).
     static int indiceDoMaior(int[] arr) {
-        throw new UnsupportedOperationException("TODO");
+        int indice = 0;
+
+        for(int i = 1; arr.length > i; i++){
+            if (arr[indice] < arr[i]) {
+                indice = i;
+            }
+        }
+        return indice;
     }
 
     // TODO: insere `valor` no índice `pos`, deslocando os elementos a partir
     // dali uma casa pra direita (o último elemento "cai fora" do array, já
     // que o tamanho é fixo — essa é exatamente a limitação que Dynamic Arrays
     // resolve, próximo tópico).
-    static int[] deslocarEinserir(int[] arr, int pos, int valor) {
-        throw new UnsupportedOperationException("TODO");
+    static int[] deslocarEinserir( int[] arr, int pos, int valor) {
+        
+        
+
+        for(int i = arr.length-1; pos < i ;i--){
+            
+            arr[i] = arr[i-1];
+            
+        }
+        arr[pos] = valor;
+        return arr;
     }
 }

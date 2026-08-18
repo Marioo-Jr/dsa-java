@@ -1,3 +1,6 @@
 data,topico,problema,arquivo,status,dicas_usadas,viu_video,proxima_revisao
 2026-08-15,00-fundamentos,elementoDoMeio,00-fundamentos/StaticArray.java,com dica,1,nao,2026-08-17
 2026-08-15,00-fundamentos,inverter,00-fundamentos/StaticArray.java,com dica,2,nao,2026-08-17
+2026-08-16,00-fundamentos,soma,00-fundamentos/StaticArray.java,com dica,3,nao,2026-08-18
+2026-08-16,00-fundamentos,indiceDoMaior,00-fundamentos/StaticArray.java,com dica,3,nao,2026-08-18
+2026-08-16,00-fundamentos,deslocarEinserir,00-fundamentos/StaticArray.java,com dica,2,nao,2026-08-18
